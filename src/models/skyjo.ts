@@ -1,9 +1,8 @@
 import { Card } from './card';
 
-export class Skyjo extends Card
-{
-    constructor(id: number, value: string, couleur:string, point: number) {
-        super(id, value, couleur, point);
+export class Skyjo extends Card {
+    constructor(id: number, value: string, color: string, point: number) {
+        super(id, value, color, point);
     }
 
 
@@ -14,8 +13,8 @@ export class Skyjo extends Card
     getValue(): string {
         return this.value;
     }
-    getCouleur(): string {
-        return this.couleur;
+    getColor(): string {
+        return this.color;
     }
     getPoint(): number {
         return this.point;
@@ -29,11 +28,11 @@ export class Skyjo extends Card
     setValue(value: string): void {
         this.value = value;
     }
-    setCouleur(couleur: string): void {
-        this.couleur = couleur;
+    setColor(color: string): void {
+        this.color = color;
     }
     setPoint(point: number): void {
         this.point = point;
     }
-   
+
 }

@@ -1,10 +1,11 @@
+import { SkyjoColor, UnoColor } from '../enum/cardColor';
+import { SkyjoValue, UnoValue } from '../enum/cardValue';
 import { Card } from './card';
 
-export class Uno extends Card
-{
+export class Uno extends Card {
 
-    constructor(id: number, value: string, couleur:string, point: number) {
-        super(id, value, couleur, point);
+    constructor(id: number, value: UnoValue, color: UnoColor | SkyjoColor, point: number) {
+        super(id, value, color, point);
     }
 
 
@@ -12,11 +13,11 @@ export class Uno extends Card
     getId(): number {
         return this.id;
     }
-    getValue(): string {
+    getValue(): UnoValue | SkyjoValue {
         return this.value;
     }
-    getCouleur(): string {
-        return this.couleur;
+    getColor(): UnoColor | SkyjoColor {
+        return this.color;
     }
     getPoint(): number {
         return this.point;
@@ -27,11 +28,11 @@ export class Uno extends Card
     setId(id: number): void {
         this.id = id;
     }
-    setValue(value: string): void {
+    setValue(value: UnoValue | SkyjoValue): void {
         this.value = value;
     }
-    setCouleur(couleur: string): void {
-        this.couleur = couleur;
+    setColor(color: UnoColor | SkyjoColor): void {
+        this.color = color;
     }
     setPoint(point: number): void {
         this.point = point;

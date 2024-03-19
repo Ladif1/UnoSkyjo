@@ -1,4 +1,4 @@
-enum CardType {
-    Uno = 'Uno',
-    Skyjo = 'Skyojo',   
+export enum CardType {
+    Uno,
+    Skyjo,
 }

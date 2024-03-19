@@ -1,11 +1,13 @@
-class Uno extends Card
+import { Card } from './card';
+
+export class Uno extends Card
 {
 
     constructor(id: number, value: string, couleur:string, point: number) {
         super(id, value, couleur, point);
     }
 
-    
+
     // Getters
     getId(): number {
         return this.id;

@@ -1,4 +1,6 @@
-class Skyjo extends Card
+import { Card } from './card';
+
+export class Skyjo extends Card
 {
     constructor(id: number, value: string, couleur:string, point: number) {
         super(id, value, couleur, point);
@@ -19,7 +21,7 @@ class Skyjo extends Card
         return this.point;
     }
 
-    
+
     // Setters
     setId(id: number): void {
         this.id = id;

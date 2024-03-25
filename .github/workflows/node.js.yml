@@ -38,7 +38,7 @@ jobs:
         create-new-comment: false
         hide-summary: false
         junitxml-title: My JUnit Title
-        junitxml-path: ./coverage/junit.xml
+        junitxml-path: ./junit.xml
     - name: Check the output coverage
       run: |
         echo "Coverage Percentage - ${{ steps.coverageComment.outputs.coverage }}"

@@ -4,10 +4,12 @@ import { Card } from './card';
 import * as readlineSync from 'readline-sync';
 
 export class Uno extends Card {
-    value: UnoValue = UnoValue.One;
-    color: UnoColor = UnoColor.Red;
+    value: UnoValue;
+    color: UnoColor;
     constructor(id: number, value: UnoValue, color: UnoColor, point: number) {
         super(id, value, color, point);
+        this.value = value;
+        this.color = color;
     }
 
     toString(): string {

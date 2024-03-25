@@ -4,6 +4,7 @@ import { CardType } from '../enum/cardType';
 import { UnoValue, SkyjoValue } from '../enum/cardValue';
 import { Uno } from './uno';
 import { Skyjo } from './skyjo';
+import { UnoColor } from '../enum/cardColor';
 
 export class ListCard {
     private listCards: Card[] = [];

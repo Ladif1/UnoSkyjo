@@ -3,11 +3,12 @@ import { SkyjoValue } from '../enum/cardValue';
 import { Card } from './card';
 import * as readlineSync from 'readline-sync';
 export class Skyjo extends Card {
-
-    value: SkyjoValue = SkyjoValue.One;
-    color: SkyjoColor = SkyjoColor.Red;
+    value: SkyjoValue;
+    color: SkyjoColor;
     constructor(id: number, value: SkyjoValue, color: SkyjoColor, point: number) {
         super(id, value, color, point);
+        this.value = value;
+        this.color = color;
     }
 
     toString(): string {

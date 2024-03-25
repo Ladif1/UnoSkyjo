@@ -11,6 +11,10 @@ export class ListCard {
         this.listCards = [];
     }
 
+    public getListCards(): Card[] {
+        return this.listCards;
+    }
+
     public createCard(): void {
         console.clear();
 

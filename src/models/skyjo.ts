@@ -66,4 +66,25 @@ export class Skyjo extends Card {
         }
     }
 
+    static chooseCardValue(): SkyjoValue {
+        while (true) {
+            const options = Object.keys(SkyjoValue)
+                .filter(key => isNaN(Number(key)))
+                .map((key, index) => `${index + 1}. ${key}`)
+                .join('\n');
+
+            let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
+
+            const choiceIndex = parseInt(userChoice) - 1;
+            const values = Object.keys(SkyjoValue).filter(key => isNaN(Number(key)));
+
+            if (choiceIndex >= 0 && choiceIndex < values.length) {
+                const selectedValue = SkyjoValue[values[choiceIndex] as keyof typeof SkyjoValue];
+                console.log(`Vous avez choisi la valeur : ${values[choiceIndex]} !`);
+                return selectedValue;
+            } else {
+                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+            }
+        }
+    }
 }

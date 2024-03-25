@@ -2,6 +2,7 @@ import { SkyjoColor } from '../enum/cardColor';
 import { SkyjoValue } from '../enum/cardValue';
 import { Card } from './card';
 import * as readlineSync from 'readline-sync';
+
 export class Skyjo extends Card {
     value: SkyjoValue;
     color: SkyjoColor;

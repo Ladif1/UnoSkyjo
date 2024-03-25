@@ -7,6 +7,7 @@ async function main() {
     for (let i = 0; i < choiceIndex; i++) {
         await listCard.createCard();
     }
+    listCard.displayCards();
 }
 
 main();

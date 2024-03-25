@@ -52,4 +52,12 @@ export class ListCard {
             return undefined;
         }
     }
+
+    displayCards(): void {
+        console.clear();
+        console.log('Voici la liste des cartes créées :');
+        this.listCards.forEach(card => {
+            console.log(card.toString());
+        });
+    }
 }

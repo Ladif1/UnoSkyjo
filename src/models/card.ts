@@ -12,4 +12,12 @@ export abstract class Card {
         this.color = color;
         this.point = point;
     }
+
+    getColor(): SkyjoColor | UnoColor {
+        return this.color;
+    }
+
+    getValue(): SkyjoValue | UnoValue {
+        return this.value;
+    }
 }

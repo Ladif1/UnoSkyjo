@@ -3,9 +3,13 @@ import * as readlineSync from 'readline-sync';
 import { CardType } from '../enum/cardType';
 import { Uno } from './uno';
 import { Skyjo } from './skyjo';
+import { SkyjoColor, UnoColor } from '../enum/cardColor';
+import { SkyjoValue, UnoValue } from '../enum/cardValue';
+import { SortCard } from './sortCard';
 
 export class ListCard {
     private listCards: Card[] = [];
+    private sortCard: SortCard = new SortCard();
 
     constructor() {
         this.listCards = [];
@@ -60,5 +64,18 @@ export class ListCard {
         this.listCards.forEach(card => {
             console.log(card.toString());
         });
+        this.sortCard.setListCards(this.listCards);
+        this.sortCard.askSortCard();
     }
+
+
+
+
+    // filterCardsByColor(): void {
+    //     this.listCards.filter(card => card.getColor() === color);
+    // }
+
+    // filterCardsByValue(): void {
+    //     this.listCards.filter(card => card.getValue() === value);
+    // }
 }

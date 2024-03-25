@@ -1,39 +1,34 @@
+import { SkyjoColor } from '../enum/cardColor';
+import { SkyjoValue } from '../enum/cardValue';
 import { Card } from './card';
-
-export class Skyjo extends Card
-{
-    constructor(id: number, value: string, couleur:string, point: number) {
-        super(id, value, couleur, point);
+import * as readlineSync from 'readline-sync';
+export class Skyjo extends Card {
+    value: SkyjoValue = SkyjoValue.One;
+    color: SkyjoColor = SkyjoColor.Red;
+    constructor(id: number, value: SkyjoValue, color: SkyjoColor, point: number) {
+        super(id, value, color, point);
     }
 
+    static chooseCardColor(): SkyjoColor {
+        while (true) {
+            const options = Object.keys(SkyjoColor)
+                .filter(key => isNaN(Number(key)))
+                .map((key, index) => `${index + 1}. ${key}`)
+                .join('\n');
 
-    // Getters
-    getId(): number {
-        return this.id;
-    }
-    getValue(): string {
-        return this.value;
-    }
-    getCouleur(): string {
-        return this.couleur;
-    }
-    getPoint(): number {
-        return this.point;
+            let userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
+
+            const choiceIndex = parseInt(userChoice) - 1;
+            const colors = Object.keys(SkyjoColor).filter(key => isNaN(Number(key)));
+
+            if (choiceIndex >= 0 && choiceIndex < colors.length) {
+                const selectedColor = SkyjoColor[colors[choiceIndex] as keyof typeof SkyjoColor];
+                console.log(`Vous avez choisi la couleur : ${colors[choiceIndex]} !`);
+                return selectedColor;
+            } else {
+                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+            }
+        }
     }
 
-
-    // Setters
-    setId(id: number): void {
-        this.id = id;
-    }
-    setValue(value: string): void {
-        this.value = value;
-    }
-    setCouleur(couleur: string): void {
-        this.couleur = couleur;
-    }
-    setPoint(point: number): void {
-        this.point = point;
-    }
-   
 }

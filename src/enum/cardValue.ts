@@ -8,7 +8,7 @@ export enum UnoValue {
     Six = '6',
     Seven = '7',
     Eight = '8',
-    Nine = '9',
+    Nine = "9",
     PlusTwo = '+2',
     Reverse = 'Reverse',
     Pass = 'Pass',
@@ -28,7 +28,7 @@ export enum SkyjoValue {
     Six = '6',
     Seven = '7',
     Eight = '8',
-    Nine = '9',
+    Nine = "9",
     Ten = '10',
     Eleven = '11',
     Twelve = '12'

@@ -6,10 +6,12 @@ import { Skyjo } from './skyjo';
 import { SkyjoColor, UnoColor } from '../enum/cardColor';
 import { SkyjoValue, UnoValue } from '../enum/cardValue';
 import { SortCard } from './sortCard';
+import { FilterCard } from './filterCard';
 
 export class ListCard {
     private listCards: Card[] = [];
     private sortCard: SortCard = new SortCard();
+    private filterCard: FilterCard = new FilterCard();
 
     constructor() {
         this.listCards = [];
@@ -66,6 +68,8 @@ export class ListCard {
         });
         this.sortCard.setListCards(this.listCards);
         this.sortCard.askSortCard();
+        this.filterCard.setListCards(this.listCards);
+        this.filterCard.askFilterCard();
     }
 
 

@@ -7,7 +7,7 @@
     "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
     "start": "node dist/index.js",
     "build": "tsup src/index.ts --minify",
-    "test": "jest --coverage --coverageReporters json-summary"
+    "test": "jest --coverage --coverageReporters --reporters=default --reporters=jest-junit json-summary"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
+    "jest-junit": "^16.0.0",
     "readline-sync": "^1.4.10"
   }
 }

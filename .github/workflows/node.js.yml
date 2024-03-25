@@ -38,7 +38,7 @@ jobs:
         echo "Coverage Color - ${{ steps.coverageComment.outputs.color }}"
         echo "Summary HTML - ${{ steps.coverageComment.outputs.summaryHtml }}"
     - name: Create the badge
-      if: github.ref == 'refs/heads/main'
+      if: github.ref == 'refs/heads/master'
       uses: schneegans/dynamic-badges-action@v1.6.0
       with:
         auth: ${{ secrets.JEST_COVERAGE_COMMENT }}

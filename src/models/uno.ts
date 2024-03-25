@@ -66,4 +66,26 @@ export class Uno extends Card {
             }
         }
     }
+
+    static chooseCardValue(): UnoValue {
+        while (true) {
+            const options = Object.keys(UnoValue)
+                .filter(key => isNaN(Number(key)))
+                .map((key, index) => `${index + 1}. ${key}`)
+                .join('\n');
+
+            let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
+
+            const choiceIndex = parseInt(userChoice) - 1;
+            const values = Object.keys(UnoValue).filter(key => isNaN(Number(key)));
+
+            if (choiceIndex >= 0 && choiceIndex < values.length) {
+                const selectedValue = UnoValue[values[choiceIndex] as keyof typeof UnoValue];
+                console.log(`Vous avez choisi la valeur : ${values[choiceIndex]} !`);
+                return selectedValue;
+            } else {
+                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+            }
+        }
+    }
 }

@@ -25,11 +25,13 @@ export class ListCard {
 
         if (type === CardType.Uno) {
             let color = Uno.chooseCardColor();
-            const UnoCard = new Uno(this.listCards.length, UnoValue.One, color, 0);
+            let value = Uno.chooseCardValue();
+            const UnoCard = new Uno(this.listCards.length, value, color, 0);
             this.listCards.push(UnoCard);
         } else if (type === CardType.Skyjo) {
             let color = Skyjo.chooseCardColor();
-            this.listCards.push(new Skyjo(this.listCards.length, SkyjoValue.One, color, 0));
+            let value = Skyjo.chooseCardValue();
+            this.listCards.push(new Skyjo(this.listCards.length, value, color, 0));
         }
     }
 
@@ -53,4 +55,5 @@ export class ListCard {
             return undefined;
         }
     }
+
 }

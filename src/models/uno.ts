@@ -11,7 +11,7 @@ export class Uno extends Card {
     }
 
     toString(): string {
-        return `Carte Uno : ${UnoValue[this.value]} de couleur ${UnoColor[this.color]}`;
+        return `Carte Uno : ${this.value.toString()} de couleur ${UnoColor[this.color]}`;
     }
 
     // Getters

@@ -11,7 +11,7 @@ export class Skyjo extends Card {
     }
 
     toString(): string {
-        return `Carte Uno : ${SkyjoValue[this.value]} de couleur ${SkyjoColor[this.color]}`;
+        return `Carte Uno : ${this.value.toString()} de couleur ${SkyjoColor[this.color]}`;
     }
 
     // Getters

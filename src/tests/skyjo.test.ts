@@ -51,4 +51,64 @@ describe('Skyjo', () => {
             expect(selectedCardValue).toBeUndefined();
         });
     });
+
+    describe('getter and setter', () => {
+        it('should return the value of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+
+            expect(skyjo.getValue()).toBe(SkyjoValue.MinusTwo);
+        });
+
+        it('should return the color of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+
+            expect(skyjo.getColor()).toBe(SkyjoColor.Purple);
+        });
+
+        it('should return the point of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+
+            expect(skyjo.getPoint()).toBe(0);
+        });
+
+        it('should set the value of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+            skyjo.setValue(SkyjoValue.Two);
+
+            expect(skyjo.getValue()).toBe(SkyjoValue.Two);
+        });
+
+        it('should set the color of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+            skyjo.setColor(SkyjoColor.Yellow);
+
+            expect(skyjo.getColor()).toBe(SkyjoColor.Yellow);
+        });
+
+        it('should set the point of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+            skyjo.setPoint(10);
+
+            expect(skyjo.getPoint()).toBe(10);
+        });
+
+        it('should set the id of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+            skyjo.setId(10);
+
+            expect(skyjo.getId()).toBe(10);
+        });
+
+        it('should return the id of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+
+            expect(skyjo.getId()).toBe(1);
+        });
+
+        it('should return the string representation of the card', () => {
+            const skyjo = new Skyjo(1, SkyjoValue.MinusTwo, SkyjoColor.Purple, 0);
+
+            expect(skyjo.toString()).toBe('Carte Skyjo : -2 de couleur Purple');
+        });
+    });
 });

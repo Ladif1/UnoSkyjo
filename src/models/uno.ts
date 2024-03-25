@@ -45,47 +45,47 @@ export class Uno extends Card {
         this.point = point;
     }
 
-    static chooseCardColor(): UnoColor {
-        while (true) {
-            const options = Object.keys(UnoColor)
-                .filter(key => isNaN(Number(key)))
-                .map((key, index) => `${index + 1}. ${key}`)
-                .join('\n');
+    static chooseCardColor(): UnoColor | undefined {
+        const options = Object.keys(UnoColor)
+            .filter(key => isNaN(Number(key)))
+            .map((key, index) => `${index + 1}. ${key}`)
+            .join('\n');
 
-            let userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
+        let userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
 
-            const choiceIndex = parseInt(userChoice) - 1;
-            const colors = Object.keys(UnoColor).filter(key => isNaN(Number(key)));
+        const choiceIndex = parseInt(userChoice) - 1;
+        const colors = Object.keys(UnoColor).filter(key => isNaN(Number(key)));
 
-            if (choiceIndex >= 0 && choiceIndex < colors.length) {
-                const selectedColor = UnoColor[colors[choiceIndex] as keyof typeof UnoColor];
-                console.log(`Vous avez choisi la couleur : ${colors[choiceIndex]} !`);
-                return selectedColor;
-            } else {
-                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
-            }
+        if (choiceIndex >= 0 && choiceIndex < colors.length) {
+            const selectedColor = UnoColor[colors[choiceIndex] as keyof typeof UnoColor];
+            console.log(`Vous avez choisi la couleur : ${colors[choiceIndex]} !`);
+            return selectedColor;
+        } else {
+            console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+            return undefined;
         }
+
     }
 
-    static chooseCardValue(): UnoValue {
-        while (true) {
-            const options = Object.keys(UnoValue)
-                .filter(key => isNaN(Number(key)))
-                .map((key, index) => `${index + 1}. ${key}`)
-                .join('\n');
+    static chooseCardValue(): UnoValue | undefined {
+        const options = Object.keys(UnoValue)
+            .filter(key => isNaN(Number(key)))
+            .map((key, index) => `${index + 1}. ${key}`)
+            .join('\n');
 
-            let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
+        let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
 
-            const choiceIndex = parseInt(userChoice) - 1;
-            const values = Object.keys(UnoValue).filter(key => isNaN(Number(key)));
+        const choiceIndex = parseInt(userChoice) - 1;
+        const values = Object.keys(UnoValue).filter(key => isNaN(Number(key)));
 
-            if (choiceIndex >= 0 && choiceIndex < values.length) {
-                const selectedValue = UnoValue[values[choiceIndex] as keyof typeof UnoValue];
-                console.log(`Vous avez choisi la valeur : ${values[choiceIndex]} !`);
-                return selectedValue;
-            } else {
-                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
-            }
+        if (choiceIndex >= 0 && choiceIndex < values.length) {
+            const selectedValue = UnoValue[values[choiceIndex] as keyof typeof UnoValue];
+            console.log(`Vous avez choisi la valeur : ${values[choiceIndex]} !`);
+            return selectedValue;
+        } else {
+            console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+            return undefined;
         }
+
     }
 }

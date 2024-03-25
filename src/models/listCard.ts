@@ -26,13 +26,25 @@ export class ListCard {
         }
 
         if (type === CardType.Uno) {
-            let color = Uno.chooseCardColor();
-            let value = Uno.chooseCardValue();
+            let color = undefined;
+            while (color === undefined) {
+                color = Uno.chooseCardColor();
+            }
+            let value = undefined;
+            while (value === undefined) {
+                value = Uno.chooseCardValue();
+            }
             const UnoCard = new Uno(this.listCards.length, value, color, 0);
             this.listCards.push(UnoCard);
         } else if (type === CardType.Skyjo) {
-            let color = Skyjo.chooseCardColor();
-            let value = Skyjo.chooseCardValue();
+            let color = undefined;
+            while (color === undefined) {
+                color = Skyjo.chooseCardColor();
+            }
+            let value = undefined;
+            while (value === undefined) {
+                value = Skyjo.chooseCardValue();
+            }
             this.listCards.push(new Skyjo(this.listCards.length, value, color, 0));
         }
     }

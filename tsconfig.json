@@ -10,6 +10,17 @@
         "forceConsistentCasingInFileNames": true,
         "strict": true,
         "strictNullChecks": true,
-        "skipLibCheck": true
-    }
+        "skipLibCheck": true,
+        "types": [
+            "jest",
+            "node"
+        ]
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.test.ts"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }

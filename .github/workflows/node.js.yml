@@ -14,49 +14,37 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [18.x, 20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '20'
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
     - run: npm run test
 
-  update-coverage-in-readme:
-    name: Update Coverage in README
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Jest Coverage Comment
-        id: coverageComment
-        uses: MishaKav/jest-coverage-comment@main
-        with:
-          hide-comment: true
-          coverage-summary-path: ./coverage/coverage-summary.json
-
-      - name: Check the output coverage
-        run: |
-          echo "Coverage Percentage - ${{ steps.coverageComment.outputs.coverage }}"
-          echo "Coverage Color - ${{ steps.coverageComment.outputs.color }}"
-          echo "Summary HTML - ${{ steps.coverageComment.outputs.summaryHtml }}"
-
-      - name: Create the badge
-        if: github.ref == 'refs/heads/main'
-        uses: schneegans/dynamic-badges-action@v1.6.0
-        with:
-          auth: ${{ secrets.JEST_COVERAGE_COMMENT }}
-          gistID: c61a425abff1acf2a6adee3c70c79346
-          filename: jest-coverage-comment__main.json
-          label: Coverage
-          message: ${{ steps.coverageComment.outputs.coverage }}%
-          color: ${{ steps.coverageComment.outputs.color }}
-          namedLogo: javascript
+    - name: Jest Coverage Comment
+      id: coverageComment
+      uses: MishaKav/jest-coverage-comment@main
+      with:
+        hide-comment: true
+        coverage-summary-path: ./coverage/coverage-summary.json
+    - name: Check the output coverage
+      run: |
+        echo "Coverage Percentage - ${{ steps.coverageComment.outputs.coverage }}"
+        echo "Coverage Color - ${{ steps.coverageComment.outputs.color }}"
+        echo "Summary HTML - ${{ steps.coverageComment.outputs.summaryHtml }}"
+    - name: Create the badge
+      if: github.ref == 'refs/heads/main'
+      uses: schneegans/dynamic-badges-action@v1.6.0
+      with:
+        auth: ${{ secrets.JEST_COVERAGE_COMMENT }}
+        gistID: c61a425abff1acf2a6adee3c70c79346
+        filename: jest-coverage-comment__main.json
+        label: Coverage
+        message: ${{ steps.coverageComment.outputs.coverage }}%
+        color: ${{ steps.coverageComment.outputs.color }}
+        namedLogo: javascript

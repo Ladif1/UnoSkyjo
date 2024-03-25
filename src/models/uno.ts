@@ -10,6 +10,39 @@ export class Uno extends Card {
         super(id, value, color, point);
     }
 
+    toString(): string {
+        return `Carte Uno : ${UnoValue[this.value]} de couleur ${UnoColor[this.color]}`;
+    }
+
+    // Getters
+    getId(): number {
+        return this.id;
+    }
+    getValue(): UnoValue {
+        return this.value;
+    }
+    getColor(): UnoColor {
+        return this.color;
+    }
+    getPoint(): number {
+        return this.point;
+    }
+
+
+    // Setters
+    setId(id: number): void {
+        this.id = id;
+    }
+    setValue(value: UnoValue): void {
+        this.value = value;
+    }
+    setColor(color: UnoColor): void {
+        this.color = color;
+    }
+    setPoint(point: number): void {
+        this.point = point;
+    }
+
     static chooseCardColor(): UnoColor {
         while (true) {
             const options = Object.keys(UnoColor)

@@ -24,7 +24,9 @@ export class ListCard {
 
         if (type === CardType.Uno) {
             let color = Uno.chooseCardColor();
-            this.listCards.push(new Uno(this.listCards.length, UnoValue.One, color, 0));
+            const UnoCard = new Uno(this.listCards.length, UnoValue.One, color, 0);
+            console.log(UnoCard.toString());
+            this.listCards.push(UnoCard);
         } else if (type === CardType.Skyjo) {
             let color = Skyjo.chooseCardColor();
             this.listCards.push(new Skyjo(this.listCards.length, SkyjoValue.One, color, 0));

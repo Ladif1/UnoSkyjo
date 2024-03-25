@@ -3,10 +3,44 @@ import { SkyjoValue } from '../enum/cardValue';
 import { Card } from './card';
 import * as readlineSync from 'readline-sync';
 export class Skyjo extends Card {
+
     value: SkyjoValue = SkyjoValue.One;
     color: SkyjoColor = SkyjoColor.Red;
     constructor(id: number, value: SkyjoValue, color: SkyjoColor, point: number) {
         super(id, value, color, point);
+    }
+
+    toString(): string {
+        return `Carte Uno : ${SkyjoValue[this.value]} de couleur ${SkyjoColor[this.color]}`;
+    }
+
+    // Getters
+    getId(): number {
+        return this.id;
+    }
+    getValue(): SkyjoValue {
+        return this.value;
+    }
+    getColor(): SkyjoColor {
+        return this.color;
+    }
+    getPoint(): number {
+        return this.point;
+    }
+
+
+    // Setters
+    setId(id: number): void {
+        this.id = id;
+    }
+    setValue(value: SkyjoValue): void {
+        this.value = value;
+    }
+    setColor(color: SkyjoColor): void {
+        this.color = color;
+    }
+    setPoint(point: number): void {
+        this.point = point;
     }
 
     static chooseCardColor(): SkyjoColor {

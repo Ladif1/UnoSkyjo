@@ -12,34 +12,4 @@ export abstract class Card {
         this.color = color;
         this.point = point;
     }
-
-
-    // Getters
-    getId(): number {
-        return this.id;
-    }
-    getValue(): SkyjoValue | UnoValue {
-        return this.value;
-    }
-    getColor(): SkyjoColor | UnoColor {
-        return this.color;
-    }
-    getPoint(): number {
-        return this.point;
-    }
-
-
-    // Setters
-    setId(id: number): void {
-        this.id = id;
-    }
-    setValue(value: SkyjoValue): void {
-        this.value = value;
-    }
-    setColor(color: SkyjoColor): void {
-        this.color = color;
-    }
-    setPoint(point: number): void {
-        this.point = point;
-    }
 }

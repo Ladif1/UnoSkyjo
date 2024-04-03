@@ -69,7 +69,7 @@ describe('ListCard', () => {
         it('should not create a card', () => {
             const spyChooseCardType = jest.spyOn(listCard, 'chooseCardType').mockReturnValue(undefined);
 
-            listCard.createCard();
+            expect(() => listCard.createCard()).toThrow('Type de carte invalide.');
 
             expect(spyChooseCardType).toHaveBeenCalled();
             expect(listCard.getListCards().length).toBe(0);

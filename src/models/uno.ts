@@ -46,6 +46,7 @@ export class Uno extends Card {
     }
 
     static chooseCardColor(): UnoColor | undefined {
+        console.clear();
         const options = Object.keys(UnoColor)
             .filter(key => isNaN(Number(key)))
             .map((key, index) => `${index + 1}. ${key}`)
@@ -68,6 +69,7 @@ export class Uno extends Card {
     }
 
     static chooseCardValue(): UnoValue | undefined {
+        console.clear();
         const options = Object.keys(UnoValue)
             .filter(key => isNaN(Number(key)))
             .map((key, index) => `${index + 1}. ${key}`)

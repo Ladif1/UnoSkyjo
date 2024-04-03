@@ -1,48 +1,41 @@
-import { Card } from "./card";
+import { Card } from "../card";
 import * as readlineSync from 'readline-sync';
-import { Uno } from "./uno";
-import { Skyjo } from "./skyjo";
+import { Uno } from "../uno";
+import { Skyjo } from "../skyjo";
+import { ListCard } from "../listCard";
 
 export class SortCard {
     private listCards: Card[] = [];
 
-    constructor(listCards: Card[]) {
-        this.listCards = listCards;
+    constructor() {
+
     }
 
-    askSortCard(): void {
+    askSortCard(listCard: ListCard): void {
+        this.listCards = [...listCard.getListCards()];
         console.clear();
-        console.log('Voulez-vous trier vos cartes ?');
-
-        let userChoice = readlineSync.question(`1. Oui\n2. Non\n`);
-        const choiceIndex = parseInt(userChoice);
-        if (choiceIndex === 1) {
-            console.clear();
-            console.log('Comment voulez-vous les trier ?');
-            userChoice = readlineSync.question(`1. Couleur\n2. Valeur\n3.Type\n`);
-            const choiceFilter = parseInt(userChoice);
-            switch (choiceFilter) {
-                case 1:
-                    console.clear();
-                    console.log('Trie par couleur :');
-                    this.sortCardsByColor();
-                    break;
-                case 2:
-                    console.clear();
-                    console.log('Trie par valeur :');
-                    this.sortCardsByValue();
-                    break;
-                case 3:
-                    console.clear();
-                    console.log('Trie par type :');
-                    this.sortCardsByType();
-                    break;
-                default:
-                    console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
-                    return;
-            }
-        } else {
-            return
+        console.log('Comment voulez-vous les trier ?');
+        const userChoice = readlineSync.question(`1. Couleur\n2. Valeur\n3. Type\n`);
+        const choiceFilter = parseInt(userChoice);
+        switch (choiceFilter) {
+            case 1:
+                console.clear();
+                console.log('Trie par couleur :');
+                this.sortCardsByColor();
+                break;
+            case 2:
+                console.clear();
+                console.log('Trie par valeur :');
+                this.sortCardsByValue();
+                break;
+            case 3:
+                console.clear();
+                console.log('Trie par type :');
+                this.sortCardsByType();
+                break;
+            default:
+                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+                return;
         }
     }
 

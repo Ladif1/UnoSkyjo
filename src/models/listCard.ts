@@ -3,18 +3,15 @@ import * as readlineSync from 'readline-sync';
 import { CardType } from '../enums/cardType';
 import { Uno } from './uno';
 import { Skyjo } from './skyjo';
-import { SortCard } from './sortCard';
-import { FilterCard } from './filterCard';
+import { SortCard } from './actions/sortCard';
+import { FilterCard } from './actions/filterCard';
 
 export class ListCard {
     private listCards: Card[] = [];
-    private sortCard: SortCard = new SortCard(this.listCards);
-    private filterCard: FilterCard = new FilterCard(this.listCards);
 
-    constructor() {
-        this.listCards = [];
+    constructor(ListCards: Card[] = []) {
+        this.listCards = ListCards;
     }
-
     public getListCards(): Card[] {
         return this.listCards;
     }
@@ -24,7 +21,7 @@ export class ListCard {
 
         const type = this.chooseCardType();
         if (type === undefined) {
-            return;
+            throw new Error('Type de carte invalide.');
         }
 
         if (type === CardType.Uno) {
@@ -38,7 +35,7 @@ export class ListCard {
             }
             const UnoCard = new Uno(this.listCards.length, value, color, 0);
             this.listCards.push(UnoCard);
-        } else if (type === CardType.Skyjo) {
+        } else {
             let color = undefined;
             while (color === undefined) {
                 color = Skyjo.chooseCardColor();
@@ -67,29 +64,47 @@ export class ListCard {
             console.log(`Vous avez choisi de créer une carte de type : ${cardTypes[choiceIndex]} !`);
             return selectedCardType;
         } else {
-            console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
             return undefined;
         }
     }
 
     displayCards(): void {
         console.clear();
-        console.log('Voici la liste des cartes créées :');
-        this.listCards.forEach(card => {
+        console.log('Voici la liste des cartes :');
+        for (const card of this.listCards) {
             console.log(card.toString());
-        });
-        this.sortCard.askSortCard();
-        this.filterCard.askFilterCard();
+        }
+        console.log('\n\n');
     }
 
+    showMenu(): void {
+        const sortCard = new SortCard();
+        const filterCard = new FilterCard();
+        while (true) {
+            console.log('Que souhaitez-vous faire ?');
+            const userChoice = readlineSync.question(`\n1. Creer une carte\n2. Afficher les cartes\n3. Trier les cartes\n4. Filtrer les cartes\n5. Quitter\n`);
 
+            switch (parseInt(userChoice)) {
+                case 1:
 
-
-    // filterCardsByColor(): void {
-    //     this.listCards.filter(card => card.getColor() === color);
-    // }
-
-    // filterCardsByValue(): void {
-    //     this.listCards.filter(card => card.getValue() === value);
-    // }
+                    this.createCard();
+                    break;
+                case 2:
+                    this.displayCards();
+                    break;
+                case 3:
+                    sortCard.askSortCard(this);
+                    break;
+                case 4:
+                    filterCard.askFilterCard(this);
+                    break;
+                case 5:
+                    console.log('Merci d\'avoir utilisé le créateur de cartes !');
+                    process.exit(0);
+                default:
+                    console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+                    break;
+            }
+        }
+    }
 }

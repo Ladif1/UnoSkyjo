@@ -1,15 +1,15 @@
 export enum UnoColor {
-    Red = "Red",
-    Blue = "Blue",
-    Green = "Green",
-    Yellow = "Yellow",
-    Black = "Black",
+    Red,
+    Blue,
+    Green,
+    Yellow,
+    Black
 }
 
 export enum SkyjoColor {
-    Purple = "Purple",
-    Blue = "Blue",
-    Green = "Green",
-    Yellow = "Yellow",
-    Red = "Red",
+    Purple,
+    Blue,
+    Green,
+    Yellow,
+    Red,
 }

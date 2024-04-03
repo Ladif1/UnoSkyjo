@@ -1,5 +1,6 @@
 import { SkyjoColor, UnoColor } from "../enums/cardColor";
 import { SkyjoValue, UnoValue } from "../enums/cardValue";
+import { CardOperations } from "../interfaces/cardOperations";
 
 export abstract class Card implements CardOperations {
     id: number;

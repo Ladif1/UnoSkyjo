@@ -1,3 +1,3 @@
-interface CardOperations {
+export interface CardOperations {
     toString(): string;
 }

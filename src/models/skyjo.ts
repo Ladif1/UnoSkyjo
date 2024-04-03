@@ -2,6 +2,7 @@ import { SkyjoColor } from '../enum/cardColor';
 import { SkyjoValue } from '../enum/cardValue';
 import { Card } from './card';
 import * as readlineSync from 'readline-sync';
+
 export class Skyjo extends Card {
     value: SkyjoValue;
     color: SkyjoColor;
@@ -44,47 +45,48 @@ export class Skyjo extends Card {
         this.point = point;
     }
 
-    static chooseCardColor(): SkyjoColor {
-        while (true) {
-            const options = Object.keys(SkyjoColor)
-                .filter(key => isNaN(Number(key)))
-                .map((key, index) => `${index + 1}. ${key}`)
-                .join('\n');
+    static chooseCardColor(): SkyjoColor | undefined {
+        const options = Object.keys(SkyjoColor)
+            .filter(key => isNaN(Number(key)))
+            .map((key, index) => `${index + 1}. ${key}`)
+            .join('\n');
 
-            let userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
+        let userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
 
-            const choiceIndex = parseInt(userChoice) - 1;
-            const colors = Object.keys(SkyjoColor).filter(key => isNaN(Number(key)));
+        const choiceIndex = parseInt(userChoice) - 1;
+        const colors = Object.keys(SkyjoColor).filter(key => isNaN(Number(key)));
 
-            if (choiceIndex >= 0 && choiceIndex < colors.length) {
-                const selectedColor = SkyjoColor[colors[choiceIndex] as keyof typeof SkyjoColor];
-                console.log(`Vous avez choisi la couleur : ${colors[choiceIndex]} !`);
-                return selectedColor;
-            } else {
-                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
-            }
+        if (choiceIndex >= 0 && choiceIndex < colors.length) {
+            const selectedColor = SkyjoColor[colors[choiceIndex] as keyof typeof SkyjoColor];
+            console.log(`Vous avez choisi la couleur : ${colors[choiceIndex]} !`);
+            return selectedColor;
+        } else {
+            console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+            return undefined;
+        }
+
+    }
+
+    static chooseCardValue(): SkyjoValue | undefined {
+
+        const options = Object.keys(SkyjoValue)
+            .filter(key => isNaN(Number(key)))
+            .map((key, index) => `${index + 1}. ${key}`)
+            .join('\n');
+
+        let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
+
+        const choiceIndex = parseInt(userChoice) - 1;
+        const values = Object.keys(SkyjoValue).filter(key => isNaN(Number(key)));
+
+        if (choiceIndex >= 0 && choiceIndex < values.length) {
+            const selectedValue = SkyjoValue[values[choiceIndex] as keyof typeof SkyjoValue];
+            console.log(`Vous avez choisi la valeur : ${values[choiceIndex]} !`);
+            return selectedValue;
+        } else {
+            console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+            return undefined;
         }
     }
 
-    static chooseCardValue(): SkyjoValue {
-        while (true) {
-            const options = Object.keys(SkyjoValue)
-                .filter(key => isNaN(Number(key)))
-                .map((key, index) => `${index + 1}. ${key}`)
-                .join('\n');
-
-            let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
-
-            const choiceIndex = parseInt(userChoice) - 1;
-            const values = Object.keys(SkyjoValue).filter(key => isNaN(Number(key)));
-
-            if (choiceIndex >= 0 && choiceIndex < values.length) {
-                const selectedValue = SkyjoValue[values[choiceIndex] as keyof typeof SkyjoValue];
-                console.log(`Vous avez choisi la valeur : ${values[choiceIndex]} !`);
-                return selectedValue;
-            } else {
-                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
-            }
-        }
-    }
 }

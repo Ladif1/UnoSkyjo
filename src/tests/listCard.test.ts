@@ -4,6 +4,7 @@ import { Uno } from '../models/uno';
 import { Skyjo } from '../models/skyjo';
 import { SkyjoValue, UnoValue } from '../enums/cardValue';
 import readlineSync from 'readline-sync';
+import { SkyjoColor, UnoColor } from '../enums/cardColor';
 
 describe('ListCard', () => {
     let listCard: ListCard;
@@ -19,8 +20,8 @@ describe('ListCard', () => {
         });
 
         it('should return the list of created cards', () => {
-            const unoCard = new Uno(0, UnoValue.Zero, 0, 0);
-            const skyjoCard = new Skyjo(0, SkyjoValue.Zero, 0, 0);
+            const unoCard = new Uno(0, UnoValue.Zero, UnoColor.Black, 0);
+            const skyjoCard = new Skyjo(0, SkyjoValue.Zero, SkyjoColor.Blue, 0);
             listCard['listCards'] = [unoCard, skyjoCard];
 
             const cards = listCard.getListCards();
@@ -31,7 +32,7 @@ describe('ListCard', () => {
     describe('createCard', () => {
         it('should create a Uno card', () => {
             const spyChooseCardType = jest.spyOn(listCard, 'chooseCardType').mockReturnValue(CardType.Uno);
-            const spyUnoChooseCardColor = jest.spyOn(Uno, 'chooseCardColor').mockReturnValue(0);
+            const spyUnoChooseCardColor = jest.spyOn(Uno, 'chooseCardColor').mockReturnValue(UnoColor.Black);
             const spyUnoChooseCardValue = jest.spyOn(Uno, 'chooseCardValue').mockReturnValue(UnoValue.Zero);
 
             listCard.createCard();
@@ -49,7 +50,7 @@ describe('ListCard', () => {
 
         it('should create a Skyjo card', () => {
             const spyChooseCardType = jest.spyOn(listCard, 'chooseCardType').mockReturnValue(CardType.Skyjo);
-            const spySkyjoChooseCardColor = jest.spyOn(Skyjo, 'chooseCardColor').mockReturnValue(0);
+            const spySkyjoChooseCardColor = jest.spyOn(Skyjo, 'chooseCardColor').mockReturnValue(SkyjoColor.Blue);
             const spySkyjoChooseCardValue = jest.spyOn(Skyjo, 'chooseCardValue').mockReturnValue(SkyjoValue.Zero);
 
             listCard.createCard();
@@ -106,8 +107,8 @@ describe('ListCard', () => {
 
         describe('displayCards', () => {
             it('should display the list of created cards', () => {
-                const unoCard = new Uno(0, UnoValue.Zero, 0, 0);
-                const skyjoCard = new Skyjo(0, SkyjoValue.Zero, 0, 0);
+                const unoCard = new Uno(0, UnoValue.Zero, UnoColor.Black, 0);
+                const skyjoCard = new Skyjo(0, SkyjoValue.Zero, SkyjoColor.Blue, 0);
                 listCard['listCards'] = [unoCard, skyjoCard];
 
                 const consoleSpy = jest.spyOn(console, 'log');

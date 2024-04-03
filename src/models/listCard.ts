@@ -80,7 +80,7 @@ export class ListCard {
     showMenu(): void {
         const sortCard = new SortCard();
         const filterCard = new FilterCard();
-        while (true) {
+        for (; ;) {
             console.log('Que souhaitez-vous faire ?');
             const userChoice = readlineSync.question(`\n1. Creer une carte\n2. Afficher les cartes\n3. Trier les cartes\n4. Filtrer les cartes\n5. Quitter\n`);
 
@@ -101,6 +101,7 @@ export class ListCard {
                 case 5:
                     console.log('Merci d\'avoir utilisé le créateur de cartes !');
                     process.exit(0);
+                    break;
                 default:
                     console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
                     break;

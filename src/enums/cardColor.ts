@@ -3,7 +3,7 @@ export enum UnoColor {
     Blue,
     Green,
     Yellow,
-    Black,
+    Black
 }
 
 export enum SkyjoColor {

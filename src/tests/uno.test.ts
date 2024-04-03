@@ -1,7 +1,7 @@
 import { Uno } from '../models/uno';
-import { UnoColor } from '../enum/cardColor';
+import { UnoColor } from '../enums/cardColor';
 import readlineSync from 'readline-sync';
-import { UnoValue } from '../enum/cardValue';
+import { UnoValue } from '../enums/cardValue';
 
 describe('Uno', () => {
     describe('chooseCardColor', () => {

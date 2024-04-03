@@ -78,7 +78,9 @@ export class ListCard {
     }
 
     showMenu(): void {
+        // var sortCard to allow the user to sort the cards
         const sortCard = new SortCard();
+        // var filterCard to allow the user to filter the cards
         const filterCard = new FilterCard();
         console.log('Que souhaitez-vous faire ?');
         const userChoice = readlineSync.question(`\n1. Creer une carte\n2. Afficher les cartes\n3. Trier les cartes\n4. Filtrer les cartes\n5. Quitter\n`);

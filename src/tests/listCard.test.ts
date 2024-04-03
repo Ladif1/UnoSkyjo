@@ -1,8 +1,8 @@
 import { ListCard } from '../models/listCard';
-import { CardType } from '../enum/cardType';
+import { CardType } from '../enums/cardType';
 import { Uno } from '../models/uno';
 import { Skyjo } from '../models/skyjo';
-import { SkyjoValue, UnoValue } from '../enum/cardValue';
+import { SkyjoValue, UnoValue } from '../enums/cardValue';
 import readlineSync from 'readline-sync';
 
 describe('ListCard', () => {

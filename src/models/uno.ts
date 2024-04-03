@@ -1,5 +1,5 @@
-import { UnoColor } from '../enum/cardColor';
-import { UnoValue } from '../enum/cardValue';
+import { UnoColor } from '../enums/cardColor';
+import { UnoValue } from '../enums/cardValue';
 import { Card } from './card';
 import * as readlineSync from 'readline-sync';
 
@@ -51,7 +51,7 @@ export class Uno extends Card {
             .map((key, index) => `${index + 1}. ${key}`)
             .join('\n');
 
-        let userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
+        const userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
 
         const choiceIndex = parseInt(userChoice) - 1;
         const colors = Object.keys(UnoColor).filter(key => isNaN(Number(key)));
@@ -73,7 +73,7 @@ export class Uno extends Card {
             .map((key, index) => `${index + 1}. ${key}`)
             .join('\n');
 
-        let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
+        const userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
 
         const choiceIndex = parseInt(userChoice) - 1;
         const values = Object.keys(UnoValue).filter(key => isNaN(Number(key)));

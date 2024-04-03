@@ -2,14 +2,12 @@ import { Card } from "./card";
 import * as readlineSync from 'readline-sync';
 import { Uno } from "./uno";
 import { Skyjo } from "./skyjo";
-import { SkyjoColor, UnoColor } from "../enum/cardColor";
-import { SkyjoValue, UnoValue } from "../enum/cardValue";
+import { SkyjoColor, UnoColor } from "../enums/cardColor";
+import { SkyjoValue, UnoValue } from "../enums/cardValue";
 
 export class FilterCard {
     private listCards: Card[] = [];
-    constructor() { }
-
-    public setListCards(listCards: Card[]): void {
+    constructor(listCards: Card[]) {
         this.listCards = listCards;
     }
 
@@ -33,13 +31,13 @@ export class FilterCard {
                 case 2:
                     console.clear();
                     console.log('UnoValue :');
-                    for (let key in UnoValue) {
+                    for (const key in UnoValue) {
                         if (isNaN(Number(key))) {
                             console.log(`${key}: ${UnoValue[key as keyof typeof UnoValue]}`);
                         }
                     }
                     console.log('SkyjoValue :');
-                    for (let key in SkyjoValue) {
+                    for (const key in SkyjoValue) {
                         if (isNaN(Number(key))) {
                             console.log(`${key}: ${SkyjoValue[key as keyof typeof SkyjoValue]}`);
                         }
@@ -62,10 +60,10 @@ export class FilterCard {
     }
 
     filterCardsByType(type: string): void {
-        let tempCards: Card[] = [];
+        const tempCards: Card[] = [];
 
         if (type.toLocaleLowerCase() == "uno" || type.toLocaleLowerCase() == "skyjo") {
-            for (let card of this.listCards) {
+            for (const card of this.listCards) {
                 if (card instanceof Uno && type.toLocaleLowerCase() == "uno") {
                     tempCards.push(card);
                 } else if (card instanceof Skyjo && type.toLocaleLowerCase() == "skyjo") {
@@ -78,16 +76,16 @@ export class FilterCard {
         }
 
         this.listCards = tempCards;
-        for (let card of this.listCards) {
+        for (const card of this.listCards) {
             console.log(card.toString());
         }
     }
 
     filterCardsByColor(color: string): void {
-        let tempCards: Card[] = [];
+        const tempCards: Card[] = [];
 
         if (color in UnoColor || color in SkyjoColor) {
-            for (let card of this.listCards) {
+            for (const card of this.listCards) {
                 if (card.getColor() === UnoColor[color as keyof typeof UnoColor] || card.getColor() === SkyjoColor[color as keyof typeof SkyjoColor]) {
                     tempCards.push(card);
                 }
@@ -97,7 +95,7 @@ export class FilterCard {
         }
 
         this.listCards = tempCards;
-        for (let card of this.listCards) {
+        for (const card of this.listCards) {
             console.log(card.toString());
         }
     }
@@ -105,10 +103,10 @@ export class FilterCard {
 
 
     filterCardsByValue(value: string): void {
-        let tempCards: Card[] = [];
+        const tempCards: Card[] = [];
 
         if (value in UnoValue || value in SkyjoValue) {
-            for (let card of this.listCards) {
+            for (const card of this.listCards) {
                 if (card.getValue() === UnoValue[value as keyof typeof UnoValue] || card.getValue() === SkyjoValue[value as keyof typeof SkyjoValue]) {
                     tempCards.push(card);
                 }
@@ -118,7 +116,7 @@ export class FilterCard {
         }
 
         this.listCards = tempCards;
-        for (let card of this.listCards) {
+        for (const card of this.listCards) {
             console.log(card.toString());
         }
     }

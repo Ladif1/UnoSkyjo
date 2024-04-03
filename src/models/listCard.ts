@@ -1,17 +1,15 @@
 import { Card } from './card';
 import * as readlineSync from 'readline-sync';
-import { CardType } from '../enum/cardType';
+import { CardType } from '../enums/cardType';
 import { Uno } from './uno';
 import { Skyjo } from './skyjo';
-import { SkyjoColor, UnoColor } from '../enum/cardColor';
-import { SkyjoValue, UnoValue } from '../enum/cardValue';
 import { SortCard } from './sortCard';
 import { FilterCard } from './filterCard';
 
 export class ListCard {
     private listCards: Card[] = [];
-    private sortCard: SortCard = new SortCard();
-    private filterCard: FilterCard = new FilterCard();
+    private sortCard: SortCard = new SortCard(this.listCards);
+    private filterCard: FilterCard = new FilterCard(this.listCards);
 
     constructor() {
         this.listCards = [];
@@ -24,7 +22,7 @@ export class ListCard {
     public createCard(): void {
         console.log('\nBienvenue dans le créateur de cartes !');
 
-        let type = this.chooseCardType();
+        const type = this.chooseCardType();
         if (type === undefined) {
             return;
         }
@@ -59,7 +57,7 @@ export class ListCard {
             .map((key, index) => `${index + 1}. ${key}`)
             .join('\n');
 
-        let userChoice = readlineSync.question(`Que souhaitez-vous creer ?\n${options}\n`);
+        const userChoice = readlineSync.question(`Que souhaitez-vous creer ?\n${options}\n`);
 
         const choiceIndex = parseInt(userChoice) - 1;
         const cardTypes = Object.keys(CardType).filter(key => isNaN(Number(key)));
@@ -80,9 +78,7 @@ export class ListCard {
         this.listCards.forEach(card => {
             console.log(card.toString());
         });
-        this.sortCard.setListCards(this.listCards);
         this.sortCard.askSortCard();
-        this.filterCard.setListCards(this.listCards);
         this.filterCard.askFilterCard();
     }
 

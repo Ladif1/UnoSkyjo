@@ -1,0 +1,3 @@
+interface CardOperations {
+    toString(): string;
+}

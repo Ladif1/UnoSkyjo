@@ -5,9 +5,8 @@ import { Skyjo } from "./skyjo";
 
 export class SortCard {
     private listCards: Card[] = [];
-    constructor() { }
 
-    public setListCards(listCards: Card[]): void {
+    constructor(listCards: Card[]) {
         this.listCards = listCards;
     }
 
@@ -49,10 +48,10 @@ export class SortCard {
 
 
     sortCardsByType(): void {
-        let unoCards: Uno[] = [];
-        let skyjoCards: Skyjo[] = [];
+        const unoCards: Uno[] = [];
+        const skyjoCards: Skyjo[] = [];
 
-        for (let card of this.listCards) {
+        for (const card of this.listCards) {
             if (card instanceof Uno) {
                 unoCards.push(card);
             } else if (card instanceof Skyjo) {
@@ -61,7 +60,7 @@ export class SortCard {
         }
 
         this.listCards = [...unoCards, ...skyjoCards]
-        for (let card of this.listCards) {
+        for (const card of this.listCards) {
             console.log(card.toString());
         }
     }
@@ -76,7 +75,7 @@ export class SortCard {
             }
             return 0;
         });
-        for (let card of this.listCards) {
+        for (const card of this.listCards) {
             console.log(card.toString());
         }
     }
@@ -91,7 +90,7 @@ export class SortCard {
             }
             return 0;
         });
-        for (let card of this.listCards) {
+        for (const card of this.listCards) {
             console.log(card.toString());
         }
     }

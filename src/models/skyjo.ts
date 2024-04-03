@@ -1,5 +1,5 @@
-import { SkyjoColor } from '../enum/cardColor';
-import { SkyjoValue } from '../enum/cardValue';
+import { SkyjoColor } from '../enums/cardColor';
+import { SkyjoValue } from '../enums/cardValue';
 import { Card } from './card';
 import * as readlineSync from 'readline-sync';
 
@@ -51,7 +51,7 @@ export class Skyjo extends Card {
             .map((key, index) => `${index + 1}. ${key}`)
             .join('\n');
 
-        let userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
+        const userChoice = readlineSync.question(`Quelle couleur souhaitez-vous pour votre carte ?\n${options}\n`);
 
         const choiceIndex = parseInt(userChoice) - 1;
         const colors = Object.keys(SkyjoColor).filter(key => isNaN(Number(key)));
@@ -74,7 +74,7 @@ export class Skyjo extends Card {
             .map((key, index) => `${index + 1}. ${key}`)
             .join('\n');
 
-        let userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
+        const userChoice = readlineSync.question(`Quelle valeur souhaitez-vous pour votre carte ?\n${options}\n`);
 
         const choiceIndex = parseInt(userChoice) - 1;
         const values = Object.keys(SkyjoValue).filter(key => isNaN(Number(key)));

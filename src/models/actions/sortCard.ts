@@ -7,8 +7,14 @@ import { ListCard } from "../listCard";
 export class SortCard {
     private listCards: Card[] = [];
 
-    constructor() {
+    constructor() { }
 
+    setListCards(listCards: Card[]): void {
+        this.listCards = [...listCards];
+    }
+
+    getListCards(): Card[] {
+        return this.listCards;
     }
 
     askSortCard(listCard: ListCard): void {
@@ -21,17 +27,17 @@ export class SortCard {
             case 1:
                 console.clear();
                 console.log('Trie par couleur :');
-                this.sortCardsByColor();
+                console.log(this.sortCardsByColor().displayCards());
                 break;
             case 2:
                 console.clear();
                 console.log('Trie par valeur :');
-                this.sortCardsByValue();
+                console.log(this.sortCardsByValue().displayCards());
                 break;
             case 3:
                 console.clear();
                 console.log('Trie par type :');
-                this.sortCardsByType();
+                console.log(this.sortCardsByType().displayCards());
                 break;
             default:
                 console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
@@ -40,7 +46,7 @@ export class SortCard {
     }
 
 
-    sortCardsByType(): void {
+    sortCardsByType(): ListCard {
         const unoCards: Uno[] = [];
         const skyjoCards: Skyjo[] = [];
 
@@ -52,13 +58,10 @@ export class SortCard {
             }
         }
 
-        this.listCards = [...unoCards, ...skyjoCards]
-        for (const card of this.listCards) {
-            console.log(card.toString());
-        }
+        return new ListCard([...unoCards, ...skyjoCards]);
     }
 
-    sortCardsByColor(): void {
+    sortCardsByColor(): ListCard {
         this.listCards.sort((a, b) => {
             if (a.getColor() < b.getColor()) {
                 return -1;
@@ -68,12 +71,10 @@ export class SortCard {
             }
             return 0;
         });
-        for (const card of this.listCards) {
-            console.log(card.toString());
-        }
+        return new ListCard(this.listCards);
     }
 
-    sortCardsByValue(): void {
+    sortCardsByValue(): ListCard {
         this.listCards.sort((a, b) => {
             if (a.getValue() < b.getValue()) {
                 return -1;
@@ -83,9 +84,7 @@ export class SortCard {
             }
             return 0;
         });
-        for (const card of this.listCards) {
-            console.log(card.toString());
-        }
+        return new ListCard(this.listCards);
     }
 
 }

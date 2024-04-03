@@ -35,3 +35,7 @@ ESLint is a tool for identifying and reporting on patterns found in ECMAScript/J
 Use `numpad` and `enter` to navigate through menu and create your cards.
 
 You can `create`, `display`, `sort` and `filter` them.
+
+## Author
+- Maxime Monceau G1, p2201845
+- Raphaël Mangini G1, p2208737

@@ -80,32 +80,30 @@ export class ListCard {
     showMenu(): void {
         const sortCard = new SortCard();
         const filterCard = new FilterCard();
-        for (; ;) {
-            console.log('Que souhaitez-vous faire ?');
-            const userChoice = readlineSync.question(`\n1. Creer une carte\n2. Afficher les cartes\n3. Trier les cartes\n4. Filtrer les cartes\n5. Quitter\n`);
+        console.log('Que souhaitez-vous faire ?');
+        const userChoice = readlineSync.question(`\n1. Creer une carte\n2. Afficher les cartes\n3. Trier les cartes\n4. Filtrer les cartes\n5. Quitter\n`);
 
-            switch (parseInt(userChoice)) {
-                case 1:
+        switch (parseInt(userChoice)) {
+            case 1:
 
-                    this.createCard();
-                    break;
-                case 2:
-                    this.displayCards();
-                    break;
-                case 3:
-                    sortCard.askSortCard(this);
-                    break;
-                case 4:
-                    filterCard.askFilterCard(this);
-                    break;
-                case 5:
-                    console.log('Merci d\'avoir utilisé le créateur de cartes !');
-                    process.exit(0);
-                    break;
-                default:
-                    console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
-                    break;
-            }
+                this.createCard();
+                break;
+            case 2:
+                this.displayCards();
+                break;
+            case 3:
+                sortCard.askSortCard(this);
+                break;
+            case 4:
+                filterCard.askFilterCard(this);
+                break;
+            case 5:
+                console.log('Merci d\'avoir utilisé le créateur de cartes !');
+                return;
+            default:
+                console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
+                break;
         }
+
     }
 }

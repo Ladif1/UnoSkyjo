@@ -9,7 +9,10 @@ import { ListCard } from "../listCard";
 export class FilterCard {
     private listCards: Card[] = [];
     constructor() {
+    }
 
+    setListCards(listCards: Card[]): void {
+        this.listCards = listCards;
     }
 
     askFilterCard(listCard: ListCard): void {

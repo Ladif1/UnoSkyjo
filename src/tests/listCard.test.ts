@@ -5,6 +5,8 @@ import { Skyjo } from '../models/skyjo';
 import { SkyjoValue, UnoValue } from '../enums/cardValue';
 import readlineSync from 'readline-sync';
 import { SkyjoColor, UnoColor } from '../enums/cardColor';
+import { SortCard } from '../models/actions/sortCard';
+import { FilterCard } from '../models/actions/filterCard';
 
 describe('ListCard', () => {
     let listCard: ListCard;
@@ -103,8 +105,6 @@ describe('ListCard', () => {
     });
 
     describe('ListCard', () => {
-        // Existing code...
-
         describe('displayCards', () => {
             it('should display the list of created cards', () => {
                 const unoCard = new Uno(0, UnoValue.Zero, UnoColor.Black, 0);
@@ -120,6 +120,91 @@ describe('ListCard', () => {
 
                 consoleSpy.mockRestore();
             });
+        });
+    });
+
+    describe('showMenu', () => {
+        it('should create a card when user choice is 1', () => {
+            const mockUserChoice = '1';
+            readlineSync.question = jest.fn().mockReturnValue(mockUserChoice);
+
+            const createCardSpy = jest.spyOn(listCard, 'createCard');
+
+            listCard.showMenu();
+
+            expect(readlineSync.question).toHaveBeenCalledWith(expect.stringContaining('Quelle couleur souhaitez-vous pour votre carte ?'));
+            expect(createCardSpy).toHaveBeenCalled();
+
+            createCardSpy.mockRestore();
+        });
+
+        it('should display cards when user choice is 2', () => {
+            const mockUserChoice = '2';
+            readlineSync.question = jest.fn().mockReturnValue(mockUserChoice);
+
+            const displayCardsSpy = jest.spyOn(listCard, 'displayCards');
+
+            listCard.showMenu();
+
+            expect(displayCardsSpy).toHaveBeenCalled();
+
+            displayCardsSpy.mockRestore();
+        });
+
+        it('should sort cards when user choice is 3', () => {
+            const mockUserChoice = '3';
+            readlineSync.question = jest.fn().mockReturnValue(mockUserChoice);
+
+            const sortCardSpy = jest.spyOn(SortCard.prototype, 'askSortCard');
+
+            listCard.showMenu();
+
+            expect(readlineSync.question).toHaveBeenCalledWith(expect.stringContaining('1. Couleur'));
+            expect(sortCardSpy).toHaveBeenCalledWith(listCard);
+
+            sortCardSpy.mockRestore();
+        });
+
+        it('should filter cards when user choice is 4', () => {
+            const mockUserChoice = '4';
+            readlineSync.question = jest.fn().mockReturnValue(mockUserChoice);
+
+            const filterCardSpy = jest.spyOn(FilterCard.prototype, 'askFilterCard');
+
+            listCard.showMenu();
+
+            expect(readlineSync.question).toHaveBeenCalledWith(expect.stringContaining('1. Couleur'));
+            expect(filterCardSpy).toHaveBeenCalledWith(listCard);
+
+            filterCardSpy.mockRestore();
+        });
+
+        it('should exit when user choice is 5', () => {
+            const mockUserChoice = '5';
+            readlineSync.question = jest.fn().mockReturnValue(mockUserChoice);
+
+            const consoleSpy = jest.spyOn(console, 'log');
+
+            listCard.showMenu();
+
+            expect(readlineSync.question).toHaveBeenCalledWith(expect.stringContaining('1. Creer une carte'));
+            expect(consoleSpy).toHaveBeenCalledWith('Merci d\'avoir utilisé le créateur de cartes !');
+
+            consoleSpy.mockRestore();
+        });
+
+        it('should display error message when user choice is invalid', () => {
+            const mockUserChoice = '6';
+            readlineSync.question = jest.fn().mockReturnValue(mockUserChoice);
+
+            const consoleSpy = jest.spyOn(console, 'log');
+
+            listCard.showMenu();
+
+            expect(readlineSync.question).toHaveBeenCalledWith(expect.stringContaining('1. Creer une carte'));
+            expect(consoleSpy).toHaveBeenCalledWith('Choix invalide. Veuillez sélectionner un numéro valide.');
+
+            consoleSpy.mockRestore();
         });
     });
 });

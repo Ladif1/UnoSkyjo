@@ -17,8 +17,10 @@ export async function main() {
         console.clear();
         console.log((error as Error).message);
     }
+    for (; ;) {
+        listCard.showMenu();
+    }
 
-    listCard.showMenu();
 }
 
 main();

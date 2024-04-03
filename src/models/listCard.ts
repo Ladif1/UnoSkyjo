@@ -78,7 +78,9 @@ export class ListCard {
     }
 
     showMenu(): void {
+        // var sortCard to allow the user to sort the cards
         const sortCard = new SortCard();
+        // var filterCard to allow the user to filter the cards
         const filterCard = new FilterCard();
         for (; ;) {
             console.log('Que souhaitez-vous faire ?');

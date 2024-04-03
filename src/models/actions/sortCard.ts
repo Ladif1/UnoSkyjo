@@ -12,6 +12,7 @@ export class SortCard {
     }
 
     askSortCard(listCard: ListCard): void {
+        // Create a copy of the list of cards
         this.listCards = [...listCard.getListCards()];
         console.clear();
         console.log('Comment voulez-vous les trier ?');
@@ -39,7 +40,9 @@ export class SortCard {
         }
     }
 
-
+    /**
+     * Sort the cards by type, Uno first and Skyjo after
+     */
     sortCardsByType(): void {
         const unoCards: Uno[] = [];
         const skyjoCards: Skyjo[] = [];
@@ -52,6 +55,7 @@ export class SortCard {
             }
         }
 
+        // Add to the list of cards the Uno cards first and the Skyjo cards after
         this.listCards = [...unoCards, ...skyjoCards]
         for (const card of this.listCards) {
             console.log(card.toString());

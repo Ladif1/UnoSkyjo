@@ -6,6 +6,9 @@ import { SkyjoColor, UnoColor } from "../../enums/cardColor";
 import { SkyjoValue, UnoValue } from "../../enums/cardValue";
 import { ListCard } from "../listCard";
 
+/**
+ * Represents a class that filters cards based on different criteria.
+ */
 export class FilterCard {
     private listCards: Card[] = [];
     constructor() {
@@ -98,8 +101,13 @@ export class FilterCard {
         return new ListCard(tempCards);
     }
 
+    /**
+     * Method that displays the values of the cards which were created by user.
+     * 
+    */
     displayUserValue() {
         console.log('Valeur disponible dans vos cartes :');
+        // List Card to store the cards value that have already been seen.
         let tempCards: Card[] = [];
         let alreadySee: boolean = false;
         for (const card of this.listCards) {
@@ -131,8 +139,13 @@ export class FilterCard {
         }
     }
 
+    /**
+     * Method that displays the colors of the cards which were created by user.
+     * 
+    */
     displayUserColor() {
         console.log('Couleur disponible dans vos cartes :');
+        // List Card to store the cards color that have already been seen.
         let tempCards: Card[] = [];
         let alreadySee: boolean = false;
         for (const card of this.listCards) {

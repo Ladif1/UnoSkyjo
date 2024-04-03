@@ -17,11 +17,7 @@ export abstract class Card implements CardOperations {
 
     abstract toString(): string;
 
-    getColor(): SkyjoColor | UnoColor {
-        return this.color;
-    }
+    abstract getColor(): SkyjoColor | UnoColor;
 
-    getValue(): SkyjoValue | UnoValue {
-        return this.value;
-    }
+    abstract getValue(): SkyjoValue | UnoValue;
 }

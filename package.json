@@ -7,8 +7,8 @@
     "dev": "tsup src/index.ts --watch --onSuccess \"node dist/index.js\"",
     "start": "node dist/index.js",
     "build": "tsup src/index.ts --minify",
-    "test-sumary": "jest --reporters=default --reporters=jest-junit --coverage --coverageReporters json-summary",
-    "test": "jest --reporters=default --reporters=jest-junit --coverage",
+    "test-summary": "jest --reporters=default --reporters=jest-junit --coverage --coverageReporters json-summary",
+    "test": "jest --coverage",
     "test-eslint": "npx eslint . --ext .ts"
   },
   "keywords": [],

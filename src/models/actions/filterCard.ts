@@ -22,23 +22,14 @@ export class FilterCard {
         switch (choiceFilter) {
             case 1:
                 console.clear();
+                this.displayUserColor();
                 userChoice = readlineSync.question(`Couleur : `);
                 this.filterCardsByColor(userChoice).displayCards();
                 break;
             case 2:
                 console.clear();
-                console.log('UnoValue :');
-                for (const key in UnoValue) {
-                    if (isNaN(Number(key))) {
-                        console.log(`${key}: ${UnoValue[key as keyof typeof UnoValue]}`);
-                    }
-                }
-                console.log('SkyjoValue :');
-                for (const key in SkyjoValue) {
-                    if (isNaN(Number(key))) {
-                        console.log(`${key}: ${SkyjoValue[key as keyof typeof SkyjoValue]}`);
-                    }
-                }
+                this.displayUserValue();
+                console.log('\n');
                 userChoice = readlineSync.question(`Valeur : `);
                 this.filterCardsByValue(userChoice).displayCards();
                 break;
@@ -105,5 +96,71 @@ export class FilterCard {
         }
 
         return new ListCard(tempCards);
+    }
+
+    displayUserValue() {
+        console.log('Valeur disponible dans vos cartes :');
+        let tempCards: Card[] = [];
+        let alreadySee: boolean = false;
+        for (const card of this.listCards) {
+            for (let tempcard of tempCards) {
+                if (card.getValue() == tempcard.getValue()) {
+                    alreadySee = true;
+                }
+            }
+
+            if (!alreadySee) {
+                if (card instanceof Uno) {
+                    for (const key in UnoValue) {
+                        if (UnoValue[key as keyof typeof UnoValue] == card.getValue()) {
+                            console.log(`${key}`);
+                            tempCards.push(card);
+                        }
+                    }
+                } else {
+                    for (const key in SkyjoValue) {
+                        if (SkyjoValue[key as keyof typeof SkyjoValue] == card.getValue()) {
+                            console.log(`${key}`);
+                            tempCards.push(card);
+                        }
+                    }
+                }
+            } else {
+                alreadySee = false;
+            }
+        }
+    }
+
+    displayUserColor() {
+        console.log('Couleur disponible dans vos cartes :');
+        let tempCards: Card[] = [];
+        let alreadySee: boolean = false;
+        for (const card of this.listCards) {
+            for (let tempcard of tempCards) {
+                if (card.getColor() == tempcard.getColor()) {
+                    alreadySee = true;
+                }
+            }
+
+            if (!alreadySee) {
+                if (card instanceof Uno) {
+                    for (const key in UnoColor) {
+                        if (UnoColor[key as keyof typeof UnoColor] == card.getColor()) {
+                            console.log(`${key}`);
+                            tempCards.push(card);
+                        }
+                    }
+                } else {
+                    for (const key in SkyjoColor) {
+                        if (SkyjoColor[key as keyof typeof SkyjoColor] == card.getColor()) {
+                            console.log(`${key}`);
+                            tempCards.push(card);
+                        }
+                    }
+                }
+            } else {
+                alreadySee = false;
+            }
+        }
     }
 }

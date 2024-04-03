@@ -16,9 +16,7 @@ export class ListCard {
     }
 
     public createCard(): void {
-        console.clear();
-
-        console.log('Bienvenue dans le créateur de cartes !');
+        console.log('\nBienvenue dans le créateur de cartes !');
 
         let type = this.chooseCardType();
         if (type === undefined) {

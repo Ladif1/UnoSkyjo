@@ -114,7 +114,7 @@ describe('ListCard', () => {
                 const consoleSpy = jest.spyOn(console, 'log');
                 listCard.displayCards();
 
-                expect(consoleSpy).toHaveBeenCalledWith('Voici la liste des cartes créées :');
+                expect(consoleSpy).toHaveBeenCalledWith('Voici la liste des cartes :');
                 expect(consoleSpy).toHaveBeenCalledWith(unoCard.toString());
                 expect(consoleSpy).toHaveBeenCalledWith(skyjoCard.toString());
 

@@ -6,12 +6,12 @@ Here is the guide we followed to name variables, classes, methods etc.
 
 [The guide](https://basarat.gitbook.io/typescript/styleguide)
 
-## How to install and Run
+## How to install
 - Install [NodeJS](https://nodejs.org/) (LTS recommended)
 - `cd UnoSkyjo`
 - `npm install`
 
-## Tests
+## How to run Tests
 ### Unit tests
 Jest is a JavaScript testing framework designed to ensure correctness of any JavaScript codebase.  
 Tests path : `src/tests`
@@ -23,6 +23,7 @@ Tests path : `src/tests`
 ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs.
 - `npm run test-estlint`
 
+## How to run the project
 ### Live Dev Preview
 - `npm run dev`
 

@@ -62,9 +62,7 @@ export class SortCard {
         }
 
         this.listCards = [...unoCards, ...skyjoCards]
-        for (const card of this.listCards) {
-            console.log(card.toString());
-        }
+        return new ListCard(this.listCards);
     }
 
     sortCardsByColor(): ListCard {

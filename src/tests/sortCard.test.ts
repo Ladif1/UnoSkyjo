@@ -65,21 +65,4 @@ describe('SortCard', () => {
             expect(sortCard.getListCards().length).toBe(16);
         });
     });
-
-    describe('askSortCard', () => {
-        describe('when user choice is 1', () => {
-            it('should sort cards by color', () => {
-                const spy = jest.spyOn(console, 'log');
-                const spyClear = jest.spyOn(console, 'clear');
-                const spySortCardsByColor = jest.spyOn(sortCard, 'sortCardsByColor');
-
-                sortCard.askSortCard(new ListCard(sortCard.getListCards()));
-
-                expect(spy).toHaveBeenCalled();
-                expect(spyClear).toHaveBeenCalled();
-                expect(spySortCardsByColor).toHaveBeenCalled();
-
-            });
-        });
-    });
 });

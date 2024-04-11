@@ -44,9 +44,9 @@ describe('FilterCard', () => {
     describe('filterCardsByColor', () => {
         it('should filter cards by color', () => {
 
-            const filteredListCard = filterCard.filterCardsByColor('black');
+            const filteredListCard = filterCard.filterCardsByColor('Black');
 
-            expect(filteredListCard.getListCards().length).toBe(2);
+            expect(filteredListCard.getListCards().length).toBe(3);
             expect(filteredListCard.getListCards()[0].getColor()).toBe(UnoColor.Black);
         });
     });

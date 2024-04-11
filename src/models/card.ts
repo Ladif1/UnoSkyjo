@@ -20,4 +20,5 @@ export abstract class Card implements CardOperations {
     abstract getColor(): SkyjoColor | UnoColor;
 
     abstract getValue(): SkyjoValue | UnoValue;
+
 }

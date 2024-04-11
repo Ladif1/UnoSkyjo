@@ -111,10 +111,10 @@ export class FilterCard {
     displayUserValue() {
         console.log('Valeur disponible dans vos cartes :');
         // List Card to store the cards value that have already been seen.
-        let tempCards: Card[] = [];
+        const tempCards: Card[] = [];
         let alreadySee: boolean = false;
         for (const card of this.listCards) {
-            for (let tempcard of tempCards) {
+            for (const tempcard of tempCards) {
                 if (card.getValue() == tempcard.getValue()) {
                     alreadySee = true;
                 }
@@ -149,10 +149,10 @@ export class FilterCard {
     displayUserColor() {
         console.log('Couleur disponible dans vos cartes :');
         // List Card to store the cards color that have already been seen.
-        let tempCards: Card[] = [];
+        const tempCards: Card[] = [];
         let alreadySee: boolean = false;
         for (const card of this.listCards) {
-            for (let tempcard of tempCards) {
+            for (const tempcard of tempCards) {
                 if (card.getColor() == tempcard.getColor()) {
                     alreadySee = true;
                 }

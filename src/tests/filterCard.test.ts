@@ -39,6 +39,15 @@ describe('FilterCard', () => {
             expect(filteredListCard.getListCards().length).toBe(15);
             expect(filteredListCard.getListCards()[0] instanceof Uno).toBe(true);
         });
+    });
 
+    describe('filterCardsByColor', () => {
+        it('should filter cards by color', () => {
+
+            const filteredListCard = filterCard.filterCardsByColor('black');
+
+            expect(filteredListCard.getListCards().length).toBe(2);
+            expect(filteredListCard.getListCards()[0].getColor()).toBe(UnoColor.Black);
+        });
     });
 });

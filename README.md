@@ -13,6 +13,8 @@ This app has an interactive menu which allows you to filter your cards or sort t
 ## Diagrams
 ![ConceptDiagram](schema_conception.svg)
 
+![NavigDiagram](schemaNavig.svg)
+
 
 ## How to use
 Use `numpad` and `enter` to navigate through menu and create your cards.

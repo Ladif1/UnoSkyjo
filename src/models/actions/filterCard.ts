@@ -30,19 +30,31 @@ export class FilterCard {
                 console.clear();
                 this.displayUserColor();
                 userChoice = readlineSync.question(`Couleur : `);
-                this.filterCardsByColor(userChoice).displayCards();
+                try {
+                    this.filterCardsByColor(userChoice).displayCards();
+                } catch (e) {
+                    console.log((e as Error).message);
+                }
                 break;
             case 2:
                 console.clear();
                 this.displayUserValue();
                 console.log('\n');
                 userChoice = readlineSync.question(`Valeur : `);
-                this.filterCardsByValue(userChoice).displayCards();
+                try {
+                    this.filterCardsByValue(userChoice).displayCards();
+                } catch (e) {
+                    console.log((e as Error).message);
+                }
                 break;
             case 3:
                 console.clear();
                 userChoice = readlineSync.question(`Uno ou Skyjo : `);
-                this.filterCardsByType(userChoice).displayCards();
+                try {
+                    this.filterCardsByType(userChoice).displayCards();
+                } catch (e) {
+                    console.log((e as Error).message);
+                }
                 break;
             default:
                 console.log('Choix invalide. Veuillez sélectionner un numéro valide.');
@@ -62,8 +74,7 @@ export class FilterCard {
                 }
             }
         } else {
-            console.log(`"${type}" n'est pas un type valide.`);
-
+            throw new Error(`"${type}" n'est pas un type valide.`);
         }
 
         return new ListCard(tempCards);
@@ -79,8 +90,7 @@ export class FilterCard {
                 }
             }
         } else {
-            console.log(`"${color}" n'est pas une couleur valide.`);
-
+            throw new Error(`"${color}" n'est pas une couleur valide.`);
         }
 
         return new ListCard(tempCards);
@@ -98,7 +108,7 @@ export class FilterCard {
                 }
             }
         } else {
-            console.log(`"${value}" n'est pas une valeur valide.`);
+            throw new Error(`"${value}" n'est pas une valeur valide.`);
         }
 
         return new ListCard(tempCards);

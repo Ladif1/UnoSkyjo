@@ -49,5 +49,23 @@ describe('FilterCard', () => {
             expect(filteredListCard.getListCards().length).toBe(3);
             expect(filteredListCard.getListCards()[0].getColor()).toBe(UnoColor.Black);
         });
+
+        it('should crash if color is not found', () => {
+            expect(() => filterCard.filterCardsByColor('fff')).toThrow(`"fff" n'est pas une couleur valide.`);
+        });
+    });
+
+    describe('filterCardsByValue', () => {
+        it('should filter cards by value', () => {
+
+            const filteredListCard = filterCard.filterCardsByValue('Zero');
+
+            expect(filteredListCard.getListCards().length).toBe(1);
+            expect(filteredListCard.getListCards()[0].getValue()).toBe(UnoValue.Zero);
+        });
+
+        it('should crash if value is not found', () => {
+            expect(() => filterCard.filterCardsByValue('fff')).toThrow(`"fff" n'est pas une valeur valide.`);
+        });
     });
 });

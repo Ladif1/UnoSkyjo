@@ -1,7 +1,7 @@
 import { Skyjo } from '../models/skyjo';
-import { SkyjoColor } from '../enum/cardColor';
+import { SkyjoColor } from '../enums/cardColor';
 import readlineSync from 'readline-sync';
-import { SkyjoValue } from '../enum/cardValue';
+import { SkyjoValue } from '../enums/cardValue';
 
 describe('Skyjo', () => {
     describe('chooseCardColor', () => {

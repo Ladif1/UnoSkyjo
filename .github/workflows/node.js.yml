@@ -16,28 +16,30 @@ jobs:
 
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Use Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+    - run: npm run test-eslint
     - run: npm run test
+    - run: npm run test-summary
 
     - name: Jest Coverage Comment
       id: coverageComment
       uses: MishaKav/jest-coverage-comment@main
       with:
         coverage-summary-path: ./coverage/coverage-summary.json
-        title: My Jest Coverage Comment
-        summary-title: My Summary Title
+        title: Jest Coverage
+        summary-title: Summary
         badge-title: Coverage
         hide-comment: false
         create-new-comment: false
         hide-summary: false
-        junitxml-title: My JUnit Title
+        junitxml-title: Test unitaires
         junitxml-path: ./junit.xml
     - name: Check the output coverage
       run: |

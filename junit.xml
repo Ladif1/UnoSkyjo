@@ -1,77 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="34" failures="0" errors="0" time="2.626">
-  <testsuite name="ListCard" errors="0" failures="0" skipped="0" timestamp="2024-03-25T11:25:08" time="2.082" tests="8">
-    <testcase classname="ListCard getListCards should return an empty array when no cards are created" name="ListCard getListCards should return an empty array when no cards are created" time="0.015">
+<testsuites name="jest tests" tests="46" failures="0" errors="0" time="4.201">
+  <testsuite name="FilterCard" errors="0" failures="0" skipped="0" timestamp="2024-04-11T07:03:09" time="3.419" tests="2">
+    <testcase classname="FilterCard filterCardsByType should filter cards by type" name="FilterCard filterCardsByType should filter cards by type" time="0.016">
     </testcase>
-    <testcase classname="ListCard getListCards should return the list of created cards" name="ListCard getListCards should return the list of created cards" time="0.002">
-    </testcase>
-    <testcase classname="ListCard createCard should create a Uno card" name="ListCard createCard should create a Uno card" time="0.02">
-    </testcase>
-    <testcase classname="ListCard createCard should create a Skyjo card" name="ListCard createCard should create a Skyjo card" time="0.001">
-    </testcase>
-    <testcase classname="ListCard createCard should not create a card" name="ListCard createCard should not create a card" time="0.001">
-    </testcase>
-    <testcase classname="ListCard chooseCardType should return selected card type when a valid choice is made" name="ListCard chooseCardType should return selected card type when a valid choice is made" time="0.001">
-    </testcase>
-    <testcase classname="ListCard chooseCardType should return undefined when an invalid choice is made" name="ListCard chooseCardType should return undefined when an invalid choice is made" time="0.003">
-    </testcase>
-    <testcase classname="ListCard ListCard displayCards should display the list of created cards" name="ListCard ListCard displayCards should display the list of created cards" time="0.004">
+    <testcase classname="FilterCard filterCardsByColor should filter cards by color" name="FilterCard filterCardsByColor should filter cards by color" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="Uno" errors="0" failures="0" skipped="0" timestamp="2024-03-25T11:25:08" time="2.136" tests="13">
-    <testcase classname="Uno chooseCardColor should return selected card color when a valid choice is made" name="Uno chooseCardColor should return selected card color when a valid choice is made" time="0.033">
+  <testsuite name="Uno" errors="0" failures="0" skipped="0" timestamp="2024-04-11T07:03:09" time="3.451" tests="13">
+    <testcase classname="Uno chooseCardColor should return selected card color when a valid choice is made" name="Uno chooseCardColor should return selected card color when a valid choice is made" time="0.041">
     </testcase>
     <testcase classname="Uno chooseCardColor should return undefined when an invalid choice is made" name="Uno chooseCardColor should return undefined when an invalid choice is made" time="0.004">
     </testcase>
-    <testcase classname="Uno chooseCardValue should return selected card value when a valid choice is made" name="Uno chooseCardValue should return selected card value when a valid choice is made" time="0.001">
+    <testcase classname="Uno chooseCardValue should return selected card value when a valid choice is made" name="Uno chooseCardValue should return selected card value when a valid choice is made" time="0.002">
     </testcase>
-    <testcase classname="Uno chooseCardValue should return undefined when an invalid choice is made" name="Uno chooseCardValue should return undefined when an invalid choice is made" time="0.001">
+    <testcase classname="Uno chooseCardValue should return undefined when an invalid choice is made" name="Uno chooseCardValue should return undefined when an invalid choice is made" time="0.002">
     </testcase>
-    <testcase classname="Uno getter and setter should return the value of the card" name="Uno getter and setter should return the value of the card" time="0">
+    <testcase classname="Uno getter and setter should return the value of the card" name="Uno getter and setter should return the value of the card" time="0.001">
     </testcase>
     <testcase classname="Uno getter and setter should return the color of the card" name="Uno getter and setter should return the color of the card" time="0.001">
     </testcase>
     <testcase classname="Uno getter and setter should return the point of the card" name="Uno getter and setter should return the point of the card" time="0">
     </testcase>
-    <testcase classname="Uno getter and setter should set the value of the card" name="Uno getter and setter should set the value of the card" time="0">
+    <testcase classname="Uno getter and setter should set the value of the card" name="Uno getter and setter should set the value of the card" time="0.001">
     </testcase>
     <testcase classname="Uno getter and setter should set the color of the card" name="Uno getter and setter should set the color of the card" time="0">
     </testcase>
-    <testcase classname="Uno getter and setter should set the point of the card" name="Uno getter and setter should set the point of the card" time="0">
+    <testcase classname="Uno getter and setter should set the point of the card" name="Uno getter and setter should set the point of the card" time="0.001">
     </testcase>
     <testcase classname="Uno getter and setter should return the id of the card" name="Uno getter and setter should return the id of the card" time="0">
     </testcase>
-    <testcase classname="Uno getter and setter should set the id of the card" name="Uno getter and setter should set the id of the card" time="0">
+    <testcase classname="Uno getter and setter should set the id of the card" name="Uno getter and setter should set the id of the card" time="0.001">
     </testcase>
     <testcase classname="Uno getter and setter should return the string representation of the card" name="Uno getter and setter should return the string representation of the card" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Skyjo" errors="0" failures="0" skipped="0" timestamp="2024-03-25T11:25:08" time="2.127" tests="13">
-    <testcase classname="Skyjo chooseCardColor should return selected card color when a valid choice is made" name="Skyjo chooseCardColor should return selected card color when a valid choice is made" time="0.032">
+  <testsuite name="Skyjo" errors="0" failures="0" skipped="0" timestamp="2024-04-11T07:03:09" time="3.503" tests="13">
+    <testcase classname="Skyjo chooseCardColor should return selected card color when a valid choice is made" name="Skyjo chooseCardColor should return selected card color when a valid choice is made" time="0.052">
     </testcase>
     <testcase classname="Skyjo chooseCardColor should return undefined when an invalid choice is made" name="Skyjo chooseCardColor should return undefined when an invalid choice is made" time="0.002">
     </testcase>
-    <testcase classname="Skyjo chooseCardValue should return selected card value when a valid choice is made" name="Skyjo chooseCardValue should return selected card value when a valid choice is made" time="0.002">
+    <testcase classname="Skyjo chooseCardValue should return selected card value when a valid choice is made" name="Skyjo chooseCardValue should return selected card value when a valid choice is made" time="0.001">
     </testcase>
-    <testcase classname="Skyjo chooseCardValue should return undefined when an invalid choice is made" name="Skyjo chooseCardValue should return undefined when an invalid choice is made" time="0.001">
+    <testcase classname="Skyjo chooseCardValue should return undefined when an invalid choice is made" name="Skyjo chooseCardValue should return undefined when an invalid choice is made" time="0.011">
     </testcase>
-    <testcase classname="Skyjo getter and setter should return the value of the card" name="Skyjo getter and setter should return the value of the card" time="0.001">
+    <testcase classname="Skyjo getter and setter should return the value of the card" name="Skyjo getter and setter should return the value of the card" time="0">
     </testcase>
-    <testcase classname="Skyjo getter and setter should return the color of the card" name="Skyjo getter and setter should return the color of the card" time="0.001">
+    <testcase classname="Skyjo getter and setter should return the color of the card" name="Skyjo getter and setter should return the color of the card" time="0">
     </testcase>
-    <testcase classname="Skyjo getter and setter should return the point of the card" name="Skyjo getter and setter should return the point of the card" time="0">
+    <testcase classname="Skyjo getter and setter should return the point of the card" name="Skyjo getter and setter should return the point of the card" time="0.001">
     </testcase>
-    <testcase classname="Skyjo getter and setter should set the value of the card" name="Skyjo getter and setter should set the value of the card" time="0.001">
+    <testcase classname="Skyjo getter and setter should set the value of the card" name="Skyjo getter and setter should set the value of the card" time="0">
     </testcase>
-    <testcase classname="Skyjo getter and setter should set the color of the card" name="Skyjo getter and setter should set the color of the card" time="0">
+    <testcase classname="Skyjo getter and setter should set the color of the card" name="Skyjo getter and setter should set the color of the card" time="0.001">
     </testcase>
     <testcase classname="Skyjo getter and setter should set the point of the card" name="Skyjo getter and setter should set the point of the card" time="0">
     </testcase>
-    <testcase classname="Skyjo getter and setter should set the id of the card" name="Skyjo getter and setter should set the id of the card" time="0.001">
+    <testcase classname="Skyjo getter and setter should set the id of the card" name="Skyjo getter and setter should set the id of the card" time="0">
     </testcase>
     <testcase classname="Skyjo getter and setter should return the id of the card" name="Skyjo getter and setter should return the id of the card" time="0">
     </testcase>
-    <testcase classname="Skyjo getter and setter should return the string representation of the card" name="Skyjo getter and setter should return the string representation of the card" time="0">
+    <testcase classname="Skyjo getter and setter should return the string representation of the card" name="Skyjo getter and setter should return the string representation of the card" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="ListCard" errors="0" failures="0" skipped="0" timestamp="2024-04-11T07:03:09" time="3.596" tests="14">
+    <testcase classname="ListCard getListCards should return an empty array when no cards are created" name="ListCard getListCards should return an empty array when no cards are created" time="0.016">
+    </testcase>
+    <testcase classname="ListCard getListCards should return the list of created cards" name="ListCard getListCards should return the list of created cards" time="0.001">
+    </testcase>
+    <testcase classname="ListCard createCard should create a Uno card" name="ListCard createCard should create a Uno card" time="0.027">
+    </testcase>
+    <testcase classname="ListCard createCard should create a Skyjo card" name="ListCard createCard should create a Skyjo card" time="0.004">
+    </testcase>
+    <testcase classname="ListCard createCard should not create a card" name="ListCard createCard should not create a card" time="0.019">
+    </testcase>
+    <testcase classname="ListCard chooseCardType should return selected card type when a valid choice is made" name="ListCard chooseCardType should return selected card type when a valid choice is made" time="0.008">
+    </testcase>
+    <testcase classname="ListCard chooseCardType should return undefined when an invalid choice is made" name="ListCard chooseCardType should return undefined when an invalid choice is made" time="0.001">
+    </testcase>
+    <testcase classname="ListCard ListCard displayCards should display the list of created cards" name="ListCard ListCard displayCards should display the list of created cards" time="0.006">
+    </testcase>
+    <testcase classname="ListCard showMenu should create a card when user choice is 1" name="ListCard showMenu should create a card when user choice is 1" time="0.006">
+    </testcase>
+    <testcase classname="ListCard showMenu should display cards when user choice is 2" name="ListCard showMenu should display cards when user choice is 2" time="0.002">
+    </testcase>
+    <testcase classname="ListCard showMenu should sort cards when user choice is 3" name="ListCard showMenu should sort cards when user choice is 3" time="0.007">
+    </testcase>
+    <testcase classname="ListCard showMenu should filter cards when user choice is 4" name="ListCard showMenu should filter cards when user choice is 4" time="0.003">
+    </testcase>
+    <testcase classname="ListCard showMenu should exit when user choice is 5" name="ListCard showMenu should exit when user choice is 5" time="0.001">
+    </testcase>
+    <testcase classname="ListCard showMenu should display error message when user choice is invalid" name="ListCard showMenu should display error message when user choice is invalid" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="SortCard" errors="0" failures="0" skipped="0" timestamp="2024-04-11T07:03:09" time="3.618" tests="4">
+    <testcase classname="SortCard sortCardsByType should sort cards by type" name="SortCard sortCardsByType should sort cards by type" time="0.012">
+    </testcase>
+    <testcase classname="SortCard sortCardsByColor should sort cards by color" name="SortCard sortCardsByColor should sort cards by color" time="0.002">
+    </testcase>
+    <testcase classname="SortCard sortCardsByValue should sort cards by value" name="SortCard sortCardsByValue should sort cards by value" time="0.001">
+    </testcase>
+    <testcase classname="SortCard getListCards should return the list of cards" name="SortCard getListCards should return the list of cards" time="0">
     </testcase>
   </testsuite>
 </testsuites>
